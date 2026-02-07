@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kiss Day</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #ffe6f2;
+      padding-top: 100px;
+      overflow: hidden;
+    }
+    button { padding: 12px 20px; font-size: 18px; }
+    .kiss {
+      position: fixed;
+      bottom: -20px;
+      font-size: 26px;
+      animation: floatUp 6s linear infinite;
+    }
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-120vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>💋 Happy Kiss Day 💋</h1>
+<button onclick="showMessage()">Click on Happy Kiss Day</button>
+<p id="msg"></p>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7c4f24e4d3.mp3">
+</audio>
+
+<script>
+function showMessage() {
+  document.getElementById("msg").innerText =
+  "You have the best lips in the world 😘 Soft, juicy, and the cutest cheeks ❤️ I love kissing you baby 💋";
+}
+
+setInterval(() => {
+  const k = document.createElement("div");
+  k.className = "kiss";
+  k.innerText = "💋";
+  k.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(k);
+  setTimeout(() => k.remove(), 6000);
+}, 700);
+</script>
+
+</body>
+</html>
