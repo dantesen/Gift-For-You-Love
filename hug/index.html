@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hug Day</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #f0fff0;
+      padding-top: 100px;
+      overflow: hidden;
+    }
+    button { padding: 12px 20px; font-size: 18px; }
+    .hug {
+      position: fixed;
+      bottom: -20px;
+      font-size: 26px;
+      animation: floatUp 6s linear infinite;
+    }
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-120vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>🤗 Happy Hug Day 🤗</h1>
+<button onclick="showMessage()">Click on Happy Hug Day</button>
+<p id="msg"></p>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7c4f24e4d3.mp3">
+</audio>
+
+<script>
+function showMessage() {
+  document.getElementById("msg").innerText =
+  "I miss your hug so much love ❤️ The safest and best place for me is in your arms 🤗";
+}
+
+setInterval(() => {
+  const h = document.createElement("div");
+  h.className = "hug";
+  h.innerText = "🤗";
+  h.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 6000);
+}, 700);
+</script>
+
+</body>
+</html>
