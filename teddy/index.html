@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Teddy Day</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #fff3cd;
+      padding-top: 100px;
+      overflow: hidden;
+    }
+    button { padding: 12px 20px; font-size: 18px; }
+    .teddy {
+      position: fixed;
+      bottom: -20px;
+      font-size: 26px;
+      animation: floatUp 6s linear infinite;
+    }
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-120vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>🧸 Happy Teddy Day 🧸</h1>
+<button onclick="showMessage()">Click on Happy Teddy Day</button>
+<p id="msg"></p>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7c4f24e4d3.mp3">
+</audio>
+
+<script>
+function showMessage() {
+  document.getElementById("msg").innerText =
+  "The best teddy is you my dhingli 🥰 You are my dhinglu forever ❤️";
+}
+
+setInterval(() => {
+  const t = document.createElement("div");
+  t.className = "teddy";
+  t.innerText = "🧸";
+  t.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 6000);
+}, 700);
+</script>
+
+</body>
+</html>
