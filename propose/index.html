@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Propose Day</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #fff0f5;
+      padding-top: 100px;
+      overflow: hidden;
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    #yesBtn {
+      background: pink;
+      border: none;
+      border-radius: 8px;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 5px red; }
+      to { box-shadow: 0 0 20px red; }
+    }
+
+    .ring {
+      position: fixed;
+      bottom: -20px;
+      font-size: 26px;
+      animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-120vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>💍 Happy Propose Day 💍</h1>
+<button onclick="showProposal()">Click on Happy Rose Day</button>
+
+<div id="proposal"></div>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7c4f24e4d3.mp3">
+</audio>
+
+<script>
+function showProposal() {
+  document.getElementById("proposal").innerHTML = `
+    <p style="font-size:20px;">
+      As this is a long distance proposal,<br>
+      will you accept my proposal? 💖
+    </p>
+    <button id="yesBtn" onclick="yes()">Yes</button>
+    <button id="noBtn" onmouseover="moveNo()">No</button>
+  `;
+}
+
+function yes() {
+  alert("Yay ❤️ I knew it! I love you so much 😍");
+}
+
+function moveNo() {
+  const noBtn = document.getElementById("noBtn");
+  noBtn.style.position = "absolute";
+  noBtn.style.left = Math.random() * 80 + "vw";
+  noBtn.style.top = Math.random() * 80 + "vh";
+}
+
+// Ring animation
+setInterval(() => {
+  const ring = document.createElement("div");
+  ring.className = "ring";
+  ring.innerText = "💍";
+  ring.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(ring);
+  setTimeout(() => ring.remove(), 6000);
+}, 600);
+</script>
+
+</body>
+</html>
