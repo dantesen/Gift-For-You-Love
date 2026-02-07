@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chocolate Day</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #f5e1c8;
+      padding-top: 100px;
+      overflow: hidden;
+    }
+    button { padding: 12px 20px; font-size: 18px; }
+    .choco {
+      position: fixed;
+      bottom: -20px;
+      font-size: 26px;
+      animation: floatUp 6s linear infinite;
+    }
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-120vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>🍫 Happy Chocolate Day 🍫</h1>
+<button onclick="showMessage()">Click on Happy Chocolate Day</button>
+<p id="msg"></p>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7c4f24e4d3.mp3">
+</audio>
+
+<script>
+function showMessage() {
+  document.getElementById("msg").innerText =
+  "This is for my sweetheart, the sweetest sweet ever of mine 💕 You don’t need chocolate because you are sweeter than chocolate 😘";
+}
+
+setInterval(() => {
+  const c = document.createElement("div");
+  c.className = "choco";
+  c.innerText = "🍫";
+  c.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(c);
+  setTimeout(() => c.remove(), 6000);
+}, 600);
+</script>
+
+</body>
+</html>
